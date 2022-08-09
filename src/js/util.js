@@ -11,4 +11,16 @@ function kelvinToFahrenheit(kelvin) {
 	return celsiusToFahrenheit(inCelsius);
 }
 
-export default { kelvinToCelsius, kelvinToFahrenheit };
+function createDate(unix) {
+	return new Date(unix * 1000);
+}
+
+function capitalize(string) {
+	const stringSeparated = string.split(" ");
+	const stringSeparatedCapitalized = stringSeparated.map((word) => {
+		return word[0].toUpperCase() + word.substring(1);
+	});
+	return stringSeparatedCapitalized.join(" ");
+}
+
+export default { kelvinToCelsius, kelvinToFahrenheit, createDate, capitalize };

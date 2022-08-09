@@ -10,9 +10,16 @@ main {
 	gap: f.rem(50);
 }
 
-.current {
+.current,
+.main-info,
+.secondary-info {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: f.rem(10);
+}
+
+.current {
+	gap: f.rem(50);
 }
