@@ -1,0 +1,27 @@
+.weather-icon {
+	width: 175px;
+	height: 175px;
+	filter: brightness(20%);
+
+	&.light-rain {
+		content: url(./images/weather_icons/light-rain.svg);
+	}
+	&.rain {
+		content: url(./images/weather_icons/moderate_rain.svg);
+	}
+	&.thunder {
+		content: url(./images/weather_icons/thunder.svg);
+	}
+	&.cloudy-day {
+		content: url(./images/weather_icons/cloudy_day.svg);
+	}
+	&.cloudy-night {
+		content: url(./images/weather_icons/cloudy_night.svg);
+	}
+	&.clear-day {
+		content: url(./images/weather_icons/sunny.svg);
+	}
+	&.clear-night {
+		content: url(./images/weather_icons/clear_night.svg);
+	}
+}
