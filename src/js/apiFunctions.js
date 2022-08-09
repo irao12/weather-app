@@ -1,6 +1,6 @@
-async function getWeatherData(location) {
+export default async function getWeatherData(location) {
 	try {
-		let url = "https://api.openweathermap.org/data/2.5/forecast?q=";
+		let url = "https://api.openweathermap.org/data/2.5/weather?q=";
 		url += location;
 		url += "&APPID=5189e4bc5795290189cb87a5a3ee5d01";
 		const response = await fetch(url);
@@ -11,8 +11,3 @@ async function getWeatherData(location) {
 		console.log(error);
 	}
 }
-
-const weatherData = getWeatherData("London");
-weatherData.then((data) => {
-	console.log(data);
-});
