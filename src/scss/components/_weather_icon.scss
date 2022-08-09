@@ -1,7 +1,6 @@
 .weather-icon {
 	width: 175px;
 	height: 175px;
-	filter: brightness(20%);
 
 	&.light-rain {
 		content: url(./images/weather_icons/light-rain.svg);

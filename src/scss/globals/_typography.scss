@@ -1,5 +1,7 @@
 @use "fonts" as fonts;
+@use "colors" as colors;
 
 body {
 	font-family: fonts.$main-font;
+	color: colors.$main-color;
 }

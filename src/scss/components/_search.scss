@@ -1,0 +1,48 @@
+@use "../util/functions" as f;
+@use "../globals/colors" as colors;
+@use "../globals/fonts" as fonts;
+
+.search-section {
+	width: 80%;
+}
+
+.search-bar {
+	font-family: fonts.$main-font;
+
+	padding: f.rem(8) f.rem(10);
+	width: 80%;
+
+	background-color: rgb(247, 247, 247);
+	color: colors.$main-color;
+
+	border: none;
+	border-radius: f.rem(12);
+	outline: none;
+}
+
+.search-button {
+	background-color: rgb(247, 247, 247);
+	width: f.rem(40);
+	height: f.rem(40);
+	border: none;
+	border-radius: 50%;
+
+	cursor: pointer;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	svg {
+		width: 70%;
+		height: 70%;
+		transition: all 150ms ease-in-out;
+	}
+
+	&:hover {
+		background-color: rgb(233, 232, 232);
+		svg {
+			width: 85%;
+			height: 85%;
+		}
+	}
+}
