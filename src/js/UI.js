@@ -31,6 +31,8 @@ function displayWeatherIcon(weather, current, sunrise, sunset) {
 			if (isDay) dom.weatherIcon.classList.add("clear-day");
 			else dom.weatherIcon.classList.add("clear-night");
 			break;
+		default:
+			dom.weatherIcon.classList.add("wind");
 	}
 }
 

@@ -11,6 +11,9 @@
 	&.thunder {
 		content: url(./images/weather_icons/thunder.svg);
 	}
+	&.snow {
+		content: url(./images/weather_icons/snow.svg);
+	}
 	&.cloudy-day {
 		content: url(./images/weather_icons/cloudy_day.svg);
 	}
@@ -22,5 +25,8 @@
 	}
 	&.clear-night {
 		content: url(./images/weather_icons/clear_night.svg);
+	}
+	&.wind {
+		content: url(./images/weather_icons/windy.svg);
 	}
 }
