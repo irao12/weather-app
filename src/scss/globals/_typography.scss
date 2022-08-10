@@ -1,7 +1,12 @@
 @use "fonts" as fonts;
 @use "colors" as colors;
+@use "../util/functions" as f;
 
 body {
 	font-family: fonts.$main-font;
 	color: white;
+}
+
+.loading {
+	font-size: f.rem(30);
 }

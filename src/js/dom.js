@@ -1,6 +1,9 @@
 const dom = () => {
-	const locationName = document.querySelector(".current .name");
+	const loadingScreen = document.querySelector(".loading");
+	const mainInfo = document.querySelector(".main-info");
+	const secondaryInfo = document.querySelector(".secondary-info");
 
+	const locationName = document.querySelector(".current .name");
 	const weatherIcon = document.querySelector(".weather-icon");
 	const weatherDetails = document.querySelector(".weather-details");
 	const locationTemp = document.querySelector(".current .temp");
@@ -10,8 +13,13 @@ const dom = () => {
 
 	const searchButton = document.querySelector(".search-button");
 	const searchInput = document.querySelector(".search-bar");
+	const errorMessage = document.querySelector(".error");
 
 	return {
+		loadingScreen,
+		mainInfo,
+		secondaryInfo,
+
 		locationName,
 		weatherIcon,
 		weatherDetails,
@@ -22,6 +30,7 @@ const dom = () => {
 
 		searchButton,
 		searchInput,
+		errorMessage,
 	};
 };
 

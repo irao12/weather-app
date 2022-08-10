@@ -3,6 +3,28 @@ import dom from "./dom.js";
 import util from "./util.js";
 import { isBefore } from "date-fns";
 
+function removeError() {
+	dom.errorMessage.textContent = "";
+	dom.errorMessage.classList.remove("active");
+}
+
+function displayError(text) {
+	dom.errorMessage.classList.add("active");
+	dom.errorMessage.textContent = text;
+}
+
+function showLoading() {
+	dom.loadingScreen.classList.remove("inactive");
+	dom.mainInfo.classList.add("inactive");
+	dom.secondaryInfo.classList.add("inactive");
+}
+
+function removeLoading() {
+	dom.loadingScreen.classList.add("inactive");
+	dom.mainInfo.classList.remove("inactive");
+	dom.secondaryInfo.classList.remove("inactive");
+}
+
 function displayWeatherIcon(weather, current, sunrise, sunset) {
 	dom.weatherIcon.className = "weather-icon";
 	let isDay;
@@ -37,46 +59,57 @@ function displayWeatherIcon(weather, current, sunrise, sunset) {
 }
 
 async function displayCurrentWeather(location) {
-	const weatherData = await getWeatherData(location);
-	console.log(weatherData);
-	// change the location's name
-	dom.locationName.textContent = weatherData.name;
+	try {
+		showLoading();
+		const weatherData = await getWeatherData(location);
+		removeLoading();
+		removeError();
+		// change the location's name
+		dom.locationName.textContent = weatherData.name;
 
-	//change the weather icon to reflect the current weather
-	const currWeather = weatherData.weather[0].main;
-	const currDate = util.createDate(weatherData.dt);
-	const sunriseDate = util.createDate(weatherData.sys.sunrise);
-	const sunsetDate = util.createDate(weatherData.sys.sunset);
-	displayWeatherIcon(currWeather, currDate, sunriseDate, sunsetDate);
+		//change the weather icon to reflect the current weather
+		const currWeather = weatherData.weather[0].main;
+		const currDate = util.createDate(weatherData.dt);
+		const sunriseDate = util.createDate(weatherData.sys.sunrise);
+		const sunsetDate = util.createDate(weatherData.sys.sunset);
+		displayWeatherIcon(currWeather, currDate, sunriseDate, sunsetDate);
 
-	dom.weatherDetails.textContent = util.capitalize(
-		weatherData.weather[0].description
-	);
+		dom.weatherDetails.textContent = util.capitalize(
+			weatherData.weather[0].description
+		);
 
-	// change the current temperature
-	let temperature = weatherData.main.temp;
-	temperature = util.kelvinToFahrenheit(temperature);
-	dom.locationTemp.textContent = temperature.toFixed(0) + "\u00B0 F";
+		// change the current temperature
+		let temperature = weatherData.main.temp;
+		temperature = util.kelvinToFahrenheit(temperature);
+		dom.locationTemp.textContent = temperature.toFixed(0) + "\u00B0 F";
 
-	// change the current feels like temperature
-	let feelsLike = weatherData.main.feels_like;
-	feelsLike = util.kelvinToFahrenheit(feelsLike);
-	dom.locationFeelsLike.textContent =
-		"Feels like " + feelsLike.toFixed(0) + "\u00B0 F";
+		// change the current feels like temperature
+		let feelsLike = weatherData.main.feels_like;
+		feelsLike = util.kelvinToFahrenheit(feelsLike);
+		dom.locationFeelsLike.textContent =
+			"Feels like " + feelsLike.toFixed(0) + "\u00B0 F";
 
-	// change the current humidity
-	const humidity = weatherData.main.humidity;
-	dom.locationHumidity.textContent = `Humidity: ${humidity}%`;
+		// change the current humidity
+		const humidity = weatherData.main.humidity;
+		dom.locationHumidity.textContent = `Humidity: ${humidity}%`;
 
-	// change the current wind speed
-	const wind = weatherData.wind.speed;
-	dom.locationWind.textContent = `Wind speed: ${wind} meters/sec`;
+		// change the current wind speed
+		const wind = weatherData.wind.speed;
+		dom.locationWind.textContent = `Wind speed: ${wind} meters/sec`;
+	} catch (error) {
+		displayError("* search was invalid");
+		removeLoading();
+		console.log(error);
+	}
 }
 
 dom.searchButton.addEventListener("click", () => {
 	const searchValue = dom.searchInput.value;
+	if (!searchValue) {
+		displayError("* please enter a location");
+		return;
+	}
 	const formattedSearch = util.processSearch(searchValue);
-	console.log({ searchValue, formattedSearch });
 	displayCurrentWeather(formattedSearch);
 });
 
