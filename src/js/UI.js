@@ -62,6 +62,7 @@ async function displayCurrentWeather(location) {
 	try {
 		showLoading();
 		const weatherData = await getWeatherData(location);
+
 		removeLoading();
 		removeError();
 		// change the location's name

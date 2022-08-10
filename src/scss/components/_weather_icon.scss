@@ -1,6 +1,8 @@
+@use "../util/functions" as f;
+
 .weather-icon {
-	width: 175px;
-	height: 175px;
+	width: min(90%, f.rem(175));
+	height: min(70%, f.rem(175));
 
 	&.light-rain {
 		content: url(./images/weather_icons/light-rain.svg);
