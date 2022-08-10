@@ -71,4 +71,18 @@ async function displayCurrentWeather(location) {
 	dom.locationWind.textContent = `Wind speed: ${wind} meters/sec`;
 }
 
-displayCurrentWeather("new+york+city");
+dom.searchButton.addEventListener("click", () => {
+	const searchValue = dom.searchInput.value;
+	const formattedSearch = util.processSearch(searchValue);
+	console.log({ searchValue, formattedSearch });
+	displayCurrentWeather(formattedSearch);
+});
+
+dom.searchInput.addEventListener("keypress", (event) => {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		dom.searchButton.click();
+	}
+});
+
+displayCurrentWeather("New+York");

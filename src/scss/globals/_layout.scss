@@ -26,13 +26,27 @@ main {
 	height: min(80%, f.rem(600));
 	border-radius: f.rem(12);
 	padding: f.rem(20);
-	background-color: rgba(16, 16, 99, 0.15);
+	background-color: rgba(48, 19, 94, 0.233);
 }
 
 .search-section {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
+	margin: 0 auto;
 	gap: f.rem(10);
+
+	.search {
+		display: flex;
+		flex-direction: column;
+		gap: f.rem(10);
+	}
+	.error {
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
 }
 
 .secondary-info {

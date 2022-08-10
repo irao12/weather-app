@@ -9,6 +9,7 @@ const dom = () => {
 	const locationWind = document.querySelector(".current .wind");
 
 	const searchButton = document.querySelector(".search-button");
+	const searchInput = document.querySelector(".search-bar");
 
 	return {
 		locationName,
@@ -20,6 +21,7 @@ const dom = () => {
 		locationWind,
 
 		searchButton,
+		searchInput,
 	};
 };
 

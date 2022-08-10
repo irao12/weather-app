@@ -4,13 +4,19 @@
 
 .search-section {
 	width: 80%;
+	max-width: f.rem(800);
+}
+
+.search {
+	width: 70%;
 }
 
 .search-bar {
 	font-family: fonts.$main-font;
 
 	padding: f.rem(8) f.rem(10);
-	width: 80%;
+	width: 100%;
+	height: f.rem(40);
 
 	background-color: rgb(247, 247, 247);
 	color: colors.$main-color;
@@ -18,6 +24,16 @@
 	border: none;
 	border-radius: f.rem(12);
 	outline: none;
+}
+
+.error {
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: f.rem(8);
+	padding: f.rem(6) f.rem(10);
+	color: rgb(216, 46, 46);
+
+	width: 100%;
+	min-height: f.rem(40);
 }
 
 .search-button {
@@ -32,6 +48,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
 	svg {
 		width: 70%;
 		height: 70%;

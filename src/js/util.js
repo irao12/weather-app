@@ -23,4 +23,16 @@ function capitalize(string) {
 	return stringSeparatedCapitalized.join(" ");
 }
 
-export default { kelvinToCelsius, kelvinToFahrenheit, createDate, capitalize };
+function processSearch(searchTerm) {
+	searchTerm = searchTerm.trim();
+	searchTerm = searchTerm.replace(/ +/g, "+");
+	return searchTerm;
+}
+
+export default {
+	kelvinToCelsius,
+	kelvinToFahrenheit,
+	createDate,
+	capitalize,
+	processSearch,
+};
