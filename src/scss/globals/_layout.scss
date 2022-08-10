@@ -5,13 +5,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	max-height: -webkit-fill-available;
 }
 
 main {
 	padding: f.rem(30) 0;
 	width: 100%;
 	height: min(100%, f.rem(800));
-	max-height: -webkit-fill-available;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
