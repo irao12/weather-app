@@ -15,8 +15,9 @@
 	font-family: fonts.$main-font;
 
 	padding: f.rem(8) f.rem(10);
-	width: 100%;
-	height: f.rem(40);
+	width: 90%;
+	height: f.rem(35);
+	margin: auto;
 
 	background-color: rgb(247, 247, 247);
 	color: black;
@@ -32,7 +33,7 @@
 	padding: f.rem(6) f.rem(10);
 	color: rgb(211, 41, 41);
 
-	width: 100%;
+	width: 90%;
 	min-height: f.rem(40);
 }
 
