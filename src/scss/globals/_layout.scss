@@ -5,6 +5,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	height: 100vh;
 	max-height: -webkit-fill-available;
 }
 
@@ -45,11 +46,12 @@ main {
 }
 
 .current {
-	width: min(80%, 450px);
-	height: min(90%, f.rem(600));
+	width: min(70%, 350px);
+	height: min(100%, f.rem(600));
 	border-radius: f.rem(12);
 	padding: f.rem(20);
 	background-color: colors.$text-box;
+	text-align: center;
 	overflow-y: auto;
 	position: relative;
 
